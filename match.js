@@ -22,11 +22,18 @@ document.getElementById("generatepin").addEventListener("click",function(){
 document.getElementById("digit-parent").addEventListener("click",function(event){
     const value=event.target.innerText;
     const pinShowField=document.getElementById("matchpin");
-    pinShowField.value+=value;
     if(value=="C"){
         pinShowField.value="";
     }
-    // if(value=="C"){
-    //     pinShowField.value="";
-    // }
+   else if(value=="<"){
+        let value=pinShowField.value;
+        value=value.split("");
+        valueArray=value.pop();
+        const split=value.join("");
+        pinShowField.value=split;
+    }
+    else{
+        pinShowField.value+=value;
+    }
+    
 })
